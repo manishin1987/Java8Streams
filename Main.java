@@ -1,9 +1,6 @@
 package ru.ifmo.ctddev.igushkin.streamExamples;
 
-import java.util.Arrays;
-import java.util.List;
-import java.util.Map;
-import java.util.Set;
+import java.util.*;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -140,5 +137,15 @@ public class Main {
         // Uses the production
         int factorial = range.stream().reduce(1, (acc, i) -> acc * i);
         System.out.println(factorial);
+
+        System.out.println("9. Flat map");
+        // Flat map is another concept which is not that simple, but might be useful.
+        // Flat map is similar to map: it iterates over every item in the stream and calls the function which you
+        // pass as the argument. But your function should return not a single value but a stream. And flat map then
+        // concatenates all the streams returned.
+        List<Character> chars = words.stream()
+                                     .flatMap(w -> w.chars().mapToObj(c -> (char) c))
+                                     .collect(Collectors.toList());
+        System.out.println(chars);
     }
 }
