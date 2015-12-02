@@ -92,8 +92,10 @@ public class Main {
                                    .collect(Collectors.toList());
 
         System.out.println("1. Join to string:");
-        String joined = words.stream().map(it -> Integer.toString(it.length())).collect(Collectors.joining(" + "));
-        System.out.println(joined);
+        String noDelimiter = words.stream().collect(Collectors.joining());
+        System.out.println(noDelimiter);
+        String withDelimiter = words.stream().map(it -> Integer.toString(it.length())).collect(Collectors.joining(" + "));
+        System.out.println(withDelimiter);
 
         System.out.println("2. Concat two streams:");
         List<String> concat = Stream.concat(words.stream(),
