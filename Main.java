@@ -111,7 +111,7 @@ public class Main {
 
         System.out.println("4. Distinct items of a stream:");
         //Here's also a way to create a stream directly from values
-        Set<Integer> unique = Stream.of(5, 1, 2, 3, 4, 5, 4, 3, 2, 1).distinct().collect(Collectors.toSet());
+        Set<Integer> unique = Stream.of(5, 1, 2, 3, 4, 5, 4, 3, 2, 1).collect(Collectors.toSet());
         System.out.println(unique);
 
         System.out.println("5. Sorted stream");
