@@ -1,6 +1,9 @@
 package ru.ifmo.ctddev.igushkin.streamExamples;
 
-import java.util.*;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
 import java.util.function.Function;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;
@@ -147,5 +150,11 @@ public class Main {
                                      .flatMap(w -> w.chars().mapToObj(c -> (char) c))
                                      .collect(Collectors.toList());
         System.out.println(chars);
+
+        System.out.println("10. Group by");
+        // The result is a map where for each value of the function passed to groupingBy there is a list of the stream
+        // items which had this value.
+        Map<Integer, List<String>> wordsByLength = words.stream().collect(Collectors.groupingBy(String::length));
+        System.out.println(wordsByLength);
     }
 }
